@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Organise authorisation code
+# gem "pundit"
+
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"
@@ -49,10 +52,10 @@ group :test, :development do
   gem "rack_session_access"
 end
 
-group :production do
-  gem "pg"
-  gem "google-analytics-rails"
-  gem "rails_12factor"
-end
+# group :production do
+#   gem 'pg', '~> 1.0'
+#   gem "google-analytics-rails"
+#   gem "rails_12factor"
+# end
 
 gem "bootstrap-sass", "~> 3.1.1"
