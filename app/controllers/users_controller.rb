@@ -21,18 +21,26 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
   end
-
+  
+  def update
+    user = User.find(session[:user_id])
+    attraction = Attraction.find(params[:user][:attraction_id])
+    ride = Ride.create(user_id: user.id, attraction_id: attraction.id)
+    
+    message = ride.take_ride
+    redirect_to user_path(user), notice: "#{message}"
+  end
+  
   def destroy
   end
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :height, :happiness, :nausea, :tickets, :password, :admin)
+    params.require(:user).permit(:name, :height, :happiness, :nausea, :tickets, :password, :admin, :attraction_id)
   end
   
   def require_login
-    # binding.pry
     redirect_to root_path unless session.include? :user_id    
   end
 end

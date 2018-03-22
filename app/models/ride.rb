@@ -14,6 +14,7 @@ class Ride < ActiveRecord::Base
       xnausea = self.user.nausea += self.attraction.nausea_rating
       xhappiness = self.user.happiness += self.attraction.happiness_rating
       self.user.update(tickets: xtickets, nausea: xnausea, happiness: xhappiness)
+      "Thanks for riding the #{self.attraction.name}!"
     end
   end
   

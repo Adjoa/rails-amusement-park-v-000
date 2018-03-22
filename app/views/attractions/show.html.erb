@@ -1,0 +1,11 @@
+<div>
+    <p><strong>Name:</strong> <%= @attraction.name %></p>
+    <p><strong>Tickets Required:</strong> <%= @attraction.tickets %></p>
+    <p><strong>Minimum Height:</strong> <%= @attraction.min_height %></p>
+    <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating %></p>
+    <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
+    <%= form_for @user, method: :patch do |f| %>
+        <%= f.hidden_field :attraction_id, value: @attraction.id %>
+        <%= f.submit "Go on this ride" %>
+    <% end %>
+</div>
